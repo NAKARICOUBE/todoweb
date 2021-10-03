@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel</title>
+
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/logInStyle.css">
+    <link rel="stylesheet" href="css/background.css">
+    <link rel="stylesheet" href="css/todostyle.css">
+    <link rel="stylesheet" href="css/checkstyle.css">
+
+    <script src="https://kit.fontawesome.com/16e125d5f8.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Ephesis&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gemunu+Libre&display=swap" rel="stylesheet">
+
+    <style>
+    .hidden {
+        display: none;
+    }       
+    </style>
+
+</head>
+<body>
+    <div class="background ">
+        <div class="logInModal hidden">
+            <div class="modal_overlay"></div>
+            <div class="beforeLogIn ">
+                <button class="cancle"><i class="far fa-window-close"></i></button>
+                <h4>Preparing your trip</h4>
+                <form id="logInForm">
+                    <input required placeholder="Write your name" type="text">
+                    <button id="signIn"><i class="fas fa-sign-in-alt"></i></button>
+                </form>
+            </div>
+            <div class="afterLogIn hidden">
+                <button class="cancle"><i class="far fa-window-close"></i></button>
+                <h4 id="Greeting"></h4>
+                <div class="sns">
+                    <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-square"></i></a>
+                    <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram-square"></i></a>
+                </div>
+                <button id="logOut"><i class="fas fa-sign-out-alt"></i></button>
+            </div>
+        </div>
+        <header>
+            <a href="#" class="showList"><i class="fas fa-list"></i></a>
+            <button class="headerLogIn">LogIn</button>
+        </header>
+        <main>
+            <div class="listBox hidden">
+                <div class="listMenu">
+                    <div class="listMenuToDo" onclick = "handleToggleToDoCheck(0)">Todo</div>
+                    <div class="listMenuCheck" onclick = "handleToggleToDoCheck(1)">Check-list</div>
+                </div>
+                <div class="listToDo">
+                    <form id="toDoForm">
+                        <input type="text" maxlength="20">
+                    </form>
+                    <ul id="toDoList">
+                    </ul>
+                </div>
+                <div class="listCheck hidden">
+                    <ul>Necessaries for trip
+                        <li>
+                            <label for="listCheckBox" class="listCheckContent">Passport</label>
+                            <input id="listCheckBox" type="checkbox">
+                        </li>
+                        <li>
+                            <label for="listCheckBox" class="listCheckContent">Money for exchange</label>
+                            <input id="listCheckBox" type="checkbox">
+                        </li>
+                        <li>
+                            <label for="listCheckBox" class="listCheckContent">Visa card</label>
+                            <input id="listCheckBox" type="checkbox">
+                        </li>
+                        <li>
+                            <label for="listCheckBox" class="listCheckContent">Pen,notes</label>
+                            <input id="listCheckBox" type="checkbox">
+                        </li>
+                        <li>
+                            <label for="listCheckBox" class="listCheckContent">Medicine for emergency</label>
+                            <input id="listCheckBox" type="checkbox">
+                        </li>
+                        <li>
+                            <label for="listCheckBox" class="listCheckContent">Your cell phone and charger</label>
+                            <input id="listCheckBox" type="checkbox">
+                        </li>
+                        <li>
+                            <label for="listCheckBox" class="listCheckContent">Supplementary battery</label>
+                            <input id="listCheckBox" type="checkbox">
+                        </li>
+                        <li>
+                            <label for="listCheckBox" class="listCheckContent">Clothes</label>
+                            <input id="listCheckBox" type="checkbox">
+                        </li>
+                        <li>
+                            <label for="listCheckBox" class="listCheckContent">Washing tools</label>
+                            <input id="listCheckBox" type="checkbox">
+                        </li>
+                        <li>
+                            <label for="listCheckBox" class="listCheckContent">A sleep shade, blanket</label>
+                            <input id="listCheckBox" type="checkbox">
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <span id="clock"></span>
+            <div class="backgroundText">Travel</div>
+            <a class="prev" onclick = "prevNextBg(-1)">&#10094</a>
+            <a class="next" onclick = "prevNextBg(1)">&#10095</a>
+            <div class="dotAlign">
+                <span class="dot" onclick = "dotBg(0)"></span>
+                <span class="dot" onclick = "dotBg(1)"></span>
+                <span class="dot" onclick = "dotBg(2)"></span>
+                <span class="dot" onclick = "dotBg(3)"></span>
+            </div>
+            <div class="setUpAboutBox hidden">
+                <div class="menu">
+                    <span>Setup</span>
+                    <span>About</span>
+                </div>
+                <div class="setUp ">I don't make it yet..</div>
+                <div class="about hidden"></div>
+            </div>
+        </main>
+        <footer>
+            <div class="setUp">
+                <a href="#"><i class="fas fa-cog"></i></a>
+            </div>
+            <div class="quote">
+                <ul>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+            <div class="geoWeatherDegree">
+                <div class="weatherDegreeInfo">
+                    <span></span>
+                </div>
+                <div class="geolocationInfo">
+                    <span></span>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="js/logIn.js"></script>
+    <script src="js/clock.js"></script>
+    <script src="js/quote.js"></script>
+    <script src="js/background.js"></script>
+    <script src="js/todo.js"></script>
+    <script src="js/geolocation.js"></script>
+</body>
+</html>
